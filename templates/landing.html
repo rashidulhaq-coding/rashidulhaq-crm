@@ -13,9 +13,14 @@
             This CRM helps you manage your leads.
         </p>
         <div class="flex justify-center">
-          <a href="#" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-            Login to get started
-          </a>
+          {% if not request.user.is_authenticated %}
+          <a href="{% url 'signup' %}" class="mr-5 hover:text-gray-900">Signup</a>
+        {% else %}
+          {% if request.user.is_organisor %}
+         <a href="{% url 'agents:agent-list' %}" class="m-5 hover:text-gray-900">Agents</a>
+          {% endif %}
+          <a href="{% url 'leads:lead-list' %}" class="m-5 hover:text-gray-900">Leads</a>
+        {% endif %}
         </div>
       </div>
     </div>
