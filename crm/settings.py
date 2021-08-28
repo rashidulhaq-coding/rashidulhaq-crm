@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'vw&dp+lc#45m&w90hul_1_1!(y7&#zrty$y!%*u#w^n%$g(873'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rashidulhaq-crm.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -53,6 +53,7 @@ CRISPY_TEMPLATE_PACK = 'tailwind'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
